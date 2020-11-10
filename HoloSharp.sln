@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoloSharp", "HoloSharp\HoloSharp.csproj", "{763C39A9-757F-41CF-AD98-418CE83D149B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoloSharpExample", "HoloSharpExample\HoloSharpExample.csproj", "{DAAD0BC2-4262-4C4C-A50C-2780832A0D01}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{763C39A9-757F-41CF-AD98-418CE83D149B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{763C39A9-757F-41CF-AD98-418CE83D149B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{763C39A9-757F-41CF-AD98-418CE83D149B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{763C39A9-757F-41CF-AD98-418CE83D149B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAAD0BC2-4262-4C4C-A50C-2780832A0D01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAAD0BC2-4262-4C4C-A50C-2780832A0D01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAAD0BC2-4262-4C4C-A50C-2780832A0D01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAAD0BC2-4262-4C4C-A50C-2780832A0D01}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {051F6F60-3AB5-4FA9-ABC4-6852A8F00134}
+	EndGlobalSection
+EndGlobal
