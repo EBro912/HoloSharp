@@ -10,7 +10,7 @@ namespace HoloSharp.Data
     /// <summary>
     /// Represents a Stream on YouTube. It can be live, upcoming, or ended.
     /// </summary>
-    public abstract class Stream
+    public class Stream
     {
         /// <summary>
         /// The unique ID of the Stream in the HoloTools database.

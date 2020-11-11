@@ -47,7 +47,8 @@ namespace HoloSharp
         public VTuber GetChannelByName(string name)
         {
             string settings = $"channels?name={name}";
-            return JsonConvert.DeserializeObject<VTuber>(SendRequest(settings));
+            JObject v = JObject.Parse(SendRequest(settings));
+            return v.SelectToken("channels").First.ToObject<VTuber>();
         }
 
         /// <summary>
@@ -73,7 +74,6 @@ namespace HoloSharp
             char hide = hideChannelDescription ? '1' : '0';
             string settings = $"live?max_upcoming_hours={maxHours}&lookback_hours={lookbackHours}&hide_channel_desc={hide}";
             JObject streams = JObject.Parse(SendRequest(settings));
-            Console.WriteLine(streams.ToString());
             List<Stream> live = new List<Stream>();
             List<Stream> upcoming = new List<Stream>();
             List<Stream> ended = new List<Stream>();

@@ -22,7 +22,7 @@ namespace HoloSharp.Data
         /// The unique ID of the VTuber's YouTube channel.
         /// </summary>
         [JsonProperty("yt_channel_id")]
-        public string YTChannelId { get; internal set; }
+        public string ChannelId { get; internal set; }
 
         /// <summary>
         /// The VTuber's name.
@@ -54,6 +54,23 @@ namespace HoloSharp.Data
         [JsonProperty("twitter_link")]
         public string TwitterHandle { get; internal set; }
 
+        /// <summary>
+        /// The VTuber's estimated total view count.
+        /// </summary>
+        [JsonProperty("view_count")]
+        public int ViewCount { get; internal set; }
+
+        /// <summary>
+        /// The VTuber's estimated subscriber count.
+        /// </summary>
+        [JsonProperty("subscriber_count")]
+        public int SubscriberCount { get; internal set; }
+
+        /// <summary>
+        /// The total number of videos and streams this VTuber has posted.
+        /// </summary>
+        [JsonProperty("video_count")]
+        public int VideoCount { get; internal set; }
 
     }
 }
