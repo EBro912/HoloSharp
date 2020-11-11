@@ -3,7 +3,7 @@
 [![NuGet](https://img.shields.io/nuget/v/HoloSharp.svg)](https://www.nuget.org/packages/HoloSharp)
 
 HoloSharp is a C# Wrapper for the [HoloTools](https://hololive.jetri.co/#/) API. It also happens to be my very first API Wrapper!
-It is built for the .NET Framework.
+It is built using .NET Standard 2.0
 
 ## Dependancies
 The only dependancy is Newtonsoft.Json, version 12.0.2 or greater.
