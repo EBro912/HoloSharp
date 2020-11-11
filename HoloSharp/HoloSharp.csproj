@@ -44,8 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Comment.cs" />
     <Compile Include="Data\Stream.cs" />
     <Compile Include="Data\StreamStatus.cs" />
+    <Compile Include="Data\Video.cs" />
+    <Compile Include="Data\VideoStatus.cs" />
     <Compile Include="Data\VTuber.cs" />
     <Compile Include="HoloSharp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

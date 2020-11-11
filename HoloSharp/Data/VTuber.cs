@@ -46,7 +46,7 @@ namespace HoloSharp.Data
         /// The date in which the VTuber's YouTube channel was created at.
         /// </summary>
         [JsonProperty("published_at")]
-        public DateTime CreatedAt { get; internal set; }
+        public DateTime? CreatedAt { get; internal set; }
 
         /// <summary>
         /// The VTuber's Twitter username.

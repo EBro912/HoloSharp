@@ -10,16 +10,19 @@ namespace HoloSharp.Data
     /// <summary>
     /// Represents a Stream on YouTube. It can be live, upcoming, or ended.
     /// </summary>
-    public sealed class Stream
+    public abstract class Stream
     {
+        /// <summary>
+        /// The unique ID of the Stream in the HoloTools database.
+        /// </summary>
         [JsonProperty("id")]
         public int id { get; internal set; }
 
         /// <summary>
         /// The unique ID of the VTuber's YouTube channel.
         /// </summary>
-        [JsonProperty("yt_channel_id")]
-        public string YTChannelId { get; internal set; }
+        [JsonProperty("yt_video_key")]
+        public string VideoKey { get; internal set; }
 
         /// <summary>
         /// The title of the stream.
@@ -37,30 +40,30 @@ namespace HoloSharp.Data
         /// The <see cref="DateTime"/> when the stream is scheduled to start.
         /// </summary>
         [JsonProperty("live_schedule")]
-        public DateTime scheduledTime { get; internal set; }
+        public DateTime? scheduledTime { get; internal set; }
 
         /// <summary>
         /// The <see cref="DateTime"/> when the stream started.
         /// </summary>
         [JsonProperty("live_start")]
-        public DateTime startTime { get; internal set; }
+        public DateTime? startTime { get; internal set; }
 
         /// <summary>
         /// The <see cref="DateTime"/> when the stream ended.
         /// </summary>
-        [JsonProperty("live_start")]
-        public DateTime endTime { get; internal set; }
+        [JsonProperty("live_end")]
+        public DateTime? endTime { get; internal set; }
 
         /// <summary>
         /// The estimated number of viewers the stream currently has.
         /// </summary>
         [JsonProperty("live_viewers")]
-        public int Viewers { get; internal set; }
+        public int? Viewers { get; internal set; }
 
         /// <summary>
         /// The <see cref="VTuber"/> who is running the stream.
         /// </summary>
         [JsonProperty("channel")]
-        public VTuber VTuber { get; internal set; }
+        public VTuber Channel { get; internal set; }
     }
 }
