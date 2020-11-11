@@ -47,7 +47,7 @@
     <Compile Include="Data\Video.cs" />
     <Compile Include="Data\VideoStatus.cs" />
     <Compile Include="Data\VTuber.cs" />
-    <Compile Include="HoloSharp.cs" />
+    <Compile Include="HoloClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

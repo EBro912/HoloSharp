@@ -12,7 +12,7 @@ namespace HoloSharpExample
 {
     public class Program
     {
-        public static HoloSharp.HoloSharp holoSharp = new HoloSharp.HoloSharp(); 
+        public static HoloClient holoClient = new HoloClient(); 
 
         // Toy around with our results
         public static void Main(string[] args)
@@ -28,20 +28,20 @@ namespace HoloSharpExample
         // Example A: Retrieve all current live streams
         public static IReadOnlyCollection<Stream> GetLiveStreams()
         {
-            return holoSharp.GetStreams().Live;
+            return holoClient.GetStreams().Live;
         }
 
         // Example B: Retrieve a VTuber's Twitter Handle by Name
         public static string TwitterHandle(string name)
         {
-            VTuber vtuber = holoSharp.GetChannelByName(name);
+            VTuber vtuber = holoClient.GetChannelByName(name);
             return vtuber.TwitterHandle;
         }
 
         // Example C: Retrieve all videos posted after a certain time
         public static IReadOnlyCollection<Video> GetVideos(DateTime start)
         {
-            return holoSharp.GetVideos(startDate: start, isUploaded: true);
+            return holoClient.GetVideos(startDate: start, isUploaded: true);
         }
     }
 }

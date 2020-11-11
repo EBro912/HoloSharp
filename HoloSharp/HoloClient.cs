@@ -11,7 +11,7 @@ using System.Net;
 
 namespace HoloSharp
 {
-    public class HoloSharp
+    public class HoloClient
     {
         private static readonly string url = "https://api.holotools.app/v1/";
         private static HttpClient client = new HttpClient();
