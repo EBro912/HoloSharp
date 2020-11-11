@@ -27,8 +27,8 @@ HoloSharp can be installed via NuGet:
 
 ## Getting Started
 ```csharp
- HoloSharp holoSharp = new HoloSharp();
- VTuber v = holoSharp.GetChannelByName("Pekora");
+ HoloClient holoClient = new HoloClient();
+ VTuber v = holoClient.GetChannelByName("Pekora");
  Console.WriteLine(v.Name); // Pekora Ch. 兎田ぺこら
  Console.WriteLine(v.ChannelId); // UC1DCedRgGHBdm81E1llLhOQ
  // ...
