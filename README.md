@@ -19,6 +19,9 @@ The only dependancy is Newtonsoft.Json, version 12.0.2 or greater.
  - Retrieve comments using a query
  - All requests are handled by the wrapper, and uses its own HttpClient
  - Easy to setup and use!
+ 
+ To Do:
+ - In-Depth error handling, especially errors returned by the API
 
 ## Installation
 HoloSharp can be installed via NuGet:
