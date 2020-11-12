@@ -33,3 +33,6 @@ HoloSharp can be installed via NuGet:
  Console.WriteLine(v.ChannelId); // UC1DCedRgGHBdm81E1llLhOQ
  // ...
 ```
+
+## Documentation
+Further help and documentation alongside many examples can be found [here.](https://ebro912.gitbook.io/holosharp/)
