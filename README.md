@@ -40,5 +40,5 @@ HoloSharp can be installed via NuGet:
 ## Documentation
 Further help and documentation alongside many examples can be found [here.](https://ebro912.gitbook.io/holosharp/)
 
-Or, you can join the Hololive Creators Club Discord, head over to #holofans-api ask @All Toasters Toast Toast #0001 for help. (That's me!)
+Or, you can join the Hololive Creators Club Discord, head over to #holofans-api and ask @All Toasters Toast Toast #0001 for help. (That's me!)
 The invite to the server can be found [here.](https://discord.gg/xJd9Der)
