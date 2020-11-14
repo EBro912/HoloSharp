@@ -29,7 +29,7 @@ namespace HoloSharp
             if (limit < 0)
                 limit = 0;
             string settings = $"channels?limit={limit}&offset={offset}";
-            JObject channels = JObject.Parse(SendRequest(settings));
+            JObject channels = SendRequest(settings);
             List<VTuber> vtubers = new List<VTuber>();
             foreach (JToken result in channels["channels"]) // skip unnecessary info
             {
@@ -47,7 +47,7 @@ namespace HoloSharp
         public VTuber GetChannelByName(string name)
         {
             string settings = $"channels?name={name}";
-            JObject v = JObject.Parse(SendRequest(settings));
+            JObject v = SendRequest(settings);
             return v.SelectToken("channels").First.ToObject<VTuber>();
         }
 
@@ -59,7 +59,7 @@ namespace HoloSharp
         public VTuber GetChannelById(string youtubeId)
         {
             string settings = $"channels/youtube/{youtubeId}";
-            return JsonConvert.DeserializeObject<VTuber>(SendRequest(settings));
+            return SendRequest(settings).ToObject<VTuber>();
         }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace HoloSharp
         {
             char hide = hideChannelDescription ? '1' : '0';
             string settings = $"live?max_upcoming_hours={maxHours}&lookback_hours={lookbackHours}&hide_channel_desc={hide}";
-            JObject streams = JObject.Parse(SendRequest(settings));
+            JObject streams = SendRequest(settings);
             List<Stream> live = new List<Stream>();
             List<Stream> upcoming = new List<Stream>();
             List<Stream> ended = new List<Stream>();
@@ -121,7 +121,7 @@ namespace HoloSharp
                 build.Append($"&status={status.ToString().ToLower()}");
             build.Append($"&is_uploaded={uploaded}&is_captioned={captioned}");
             List<Video> videos = new List<Video>();
-            JObject vids = JObject.Parse(SendRequest(build.ToString()));
+            JObject vids = SendRequest(build.ToString());
             foreach (JToken t in vids["videos"])
                 videos.Add(t.ToObject<Video>());
             return videos;
@@ -139,7 +139,7 @@ namespace HoloSharp
         {
             string settings = "videos?title=" + title.Replace(" ", "%20");
             List<Video> videos = new List<Video>();
-            JObject vids = JObject.Parse(SendRequest(settings));
+            JObject vids = SendRequest(settings);
             foreach (JToken t in vids["videos"])
                 videos.Add(t.ToObject<Video>());
             return videos;
@@ -154,7 +154,7 @@ namespace HoloSharp
         public Video GetVideoByDatabaseId(int id, bool withComments = false)
         {
             string settings = $"videos/{id}?with_comments={(withComments ? '1' : '0')}";
-            return JsonConvert.DeserializeObject<Video>(SendRequest(settings));
+            return SendRequest(settings).ToObject<Video>();
         }
 
         /// <summary>
@@ -166,7 +166,7 @@ namespace HoloSharp
         public Video GetVideoByYoutubeId(string id, bool withComments = false)
         {
             string settings = $"videos/youtube/{id}?with_comments={(withComments ? '1' : '0')}";
-            JObject vid = JObject.Parse(SendRequest(settings));
+            JObject vid = SendRequest(settings);
             Video video = vid.ToObject<Video>();
             List<Comment> comments = new List<Comment>();
             foreach (JToken t in vid["comments"])
@@ -193,7 +193,7 @@ namespace HoloSharp
             string settings = $"comments/search?q={query.Replace(" ", "%20")}&limit={limit}&offset={offset}";
             if (id > 0)
                 settings += $"&channel_id={id}";
-            JObject vids = JObject.Parse(SendRequest(settings));
+            JObject vids = SendRequest(settings);
             List<Video> videos = new List<Video>();
             foreach (JToken t in vids["comments"])
             {
@@ -210,17 +210,25 @@ namespace HoloSharp
 
         }
 
-        private string SendRequest(string settings)
+        private JObject SendRequest(string settings)
         {
+            string response = "";
             try
             {
-                return client.GetAsync(url + settings).Result.Content.ReadAsStringAsync().Result;
+                response = client.GetAsync(url + settings).Result.Content.ReadAsStringAsync().Result;
                 // TODO: Error Handling :D
             }
             catch (WebException e)
             {
                 throw new WebException(e.Message);
             }
+
+            JObject result = JObject.Parse(response);
+            // In the case of an error, the HoloTools API returns JSON with a single object named message
+            // Check for this element before returning the result
+            if (result["message"] != null)
+                throw new ArgumentException((string)result["message"]);
+            return result;
         }
     }
 }
