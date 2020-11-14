@@ -21,7 +21,7 @@ The only dependancy is Newtonsoft.Json, version 12.0.2 or greater.
  - Easy to setup and use!
  
  To Do:
- - In-Depth error handling, especially errors returned by the API
+ - ~~In-Depth error handling, especially errors returned by the API~~
 
 ## Installation
 HoloSharp can be installed via NuGet:
