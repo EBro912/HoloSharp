@@ -11,8 +11,8 @@
     <PackageProjectUrl>https://github.com/EBro912/HoloSharp</PackageProjectUrl>
     <PackageIcon>logo.png</PackageIcon>
     <PackageTags>hololive holotools wrapper</PackageTags>
-    <PackageReleaseNotes>Class Name Fix</PackageReleaseNotes>
-    <Version>1.0.5</Version>
+    <PackageReleaseNotes>Added Basic Error Response Handling</PackageReleaseNotes>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
