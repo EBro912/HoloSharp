@@ -34,7 +34,14 @@ namespace HoloSharp.Data
         /// The URL of the stream's thumbnail.
         /// </summary>
         [JsonProperty("thumbnail")]
-        public string Thumbnail { get; internal set; }
+        public string Thumbnail
+        {
+            get
+            {
+                return $"https://i.ytimg.com/vi/{VideoKey}/maxresdefault.jpg";
+            }
+            internal set { }
+        }
 
         /// <summary>
         /// The <see cref="DateTime"/> when the stream is scheduled to start.
