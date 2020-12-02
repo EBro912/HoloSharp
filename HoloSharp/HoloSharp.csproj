@@ -11,8 +11,10 @@
     <PackageProjectUrl>https://github.com/EBro912/HoloSharp</PackageProjectUrl>
     <PackageIcon>logo.png</PackageIcon>
     <PackageTags>hololive holotools wrapper</PackageTags>
-    <PackageReleaseNotes>Added Basic Error Response Handling</PackageReleaseNotes>
-    <Version>1.1.0</Version>
+    <PackageReleaseNotes>- Fixed Stream Thumbnail getter, now automatically parses into a URL since the HoloTools thumbnail object is now unused.
+- Made all Video elements nullable, since the HoloTools API will return null values for videos marked as missing</PackageReleaseNotes>
+    <Version>1.2.1</Version>
+    <AssemblyVersion>1.2.1.0</AssemblyVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
