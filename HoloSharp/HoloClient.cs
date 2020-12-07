@@ -8,6 +8,7 @@ using HoloSharp.Data;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Net;
+using System.Text.RegularExpressions;
 
 namespace HoloSharp
 {
@@ -69,7 +70,7 @@ namespace HoloSharp
         /// <param name="lookbackHours">The maximum amount of hours to look back for ended streams. Must be less than 12.</param>
         /// <param name="hideChannelDescription">Hide the channel descriptions in the response. Mostly used as a bandwidth saver.</param>
         /// <returns>A <see cref="StreamStatus"/> containing a collection of <see cref="Stream"/> for live, upcoming, and ended streams.</returns>
-        public StreamStatus GetStreams(int maxHours = 0, int lookbackHours = 0, bool hideChannelDescription = true)
+        public StreamStatus GetStreams(int maxHours = 0, int lookbackHours = 0, bool hideChannelDescription = true, bool includeFreeChat = true)
         {
             char hide = hideChannelDescription ? '1' : '0';
             string settings = $"live?max_upcoming_hours={maxHours}&lookback_hours={lookbackHours}&hide_channel_desc={hide}";
@@ -83,6 +84,15 @@ namespace HoloSharp
                 upcoming.Add(t.ToObject<Stream>());
             foreach (JToken t in streams["ended"])
                 ended.Add(t.ToObject<Stream>());
+
+            if(!includeFreeChat)
+            {
+                // Regex pattern for free chat room streams
+                string freechattitle = @"[free\s]{0,1}chat[(ting){0,1}\s(room)]{0,1}";
+                upcoming.RemoveAll(stream => Regex.Match(stream.Title.ToLower(), freechattitle).Success
+                                             && Regex.Match(stream.Title.ToLower(), @"(free|room)").Success);
+            }
+
             return new StreamStatus
             {
                 Live = live,
