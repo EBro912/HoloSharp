@@ -11,10 +11,10 @@
     <PackageProjectUrl>https://github.com/EBro912/HoloSharp</PackageProjectUrl>
     <PackageIcon>logo.png</PackageIcon>
     <PackageTags>hololive holotools wrapper</PackageTags>
-    <PackageReleaseNotes>- Fixed Stream Thumbnail getter, now automatically parses into a URL since the HoloTools thumbnail object is now unused.
-- Made all Video elements nullable, since the HoloTools API will return null values for videos marked as missing</PackageReleaseNotes>
-    <Version>1.2.1</Version>
-    <AssemblyVersion>1.2.1.0</AssemblyVersion>
+    <PackageReleaseNotes>- Added includeFreeChat parameter in GetStreams function. The same effect can usually be achieved by setting a lookback date, however this ensures that no upcoming Free Chat streams will appear.</PackageReleaseNotes>
+    <Version>1.2.2</Version>
+    <AssemblyVersion>1.2.2.0</AssemblyVersion>
+    <FileVersion>1.2.2.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
