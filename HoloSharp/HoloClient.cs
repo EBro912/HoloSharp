@@ -69,7 +69,7 @@ namespace HoloSharp
         /// <param name="maxHours">The maximum amount of hours to search for upcoming streams.</param>
         /// <param name="lookbackHours">The maximum amount of hours to look back for ended streams. Must be less than 12.</param>
         /// <param name="hideChannelDescription">Hide the channel descriptions in the response. Mostly used as a bandwidth saver.</param>
-        /// <param name="includeFreeChat">Include upcoming streams marked as "Chat Rooms" or "Free Chats".<para />These can usually be avoided by setting a lookbackHour, however
+        /// <param name="includeFreeChat">Include upcoming streams marked as "Chat Rooms", "Free Chats", etc.<para />These can usually be avoided by setting a maxHour, however
         /// this makes sure that none appear.</param>
         /// <returns>A <see cref="StreamStatus"/> containing a collection of <see cref="Stream"/> for live, upcoming, and ended streams.</returns>
         public StreamStatus GetStreams(int maxHours = 0, int lookbackHours = 0, bool hideChannelDescription = true, bool includeFreeChat = true)
@@ -90,7 +90,7 @@ namespace HoloSharp
             if(!includeFreeChat)
             {
                 RegexOptions options = RegexOptions.Multiline | RegexOptions.IgnoreCase;
-                upcoming.RemoveAll(stream => Regex.Match(stream.Title, @"(free|chat|talk)", options).Success);
+                upcoming.RemoveAll(stream => Regex.Match(stream.Title, @"(free\s){0,1}(chat(ting){0,1}|talk)(\sroom){0,1}", options).Success);
             }
 
             return new StreamStatus

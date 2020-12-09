@@ -11,10 +11,11 @@
     <PackageProjectUrl>https://github.com/EBro912/HoloSharp</PackageProjectUrl>
     <PackageIcon>logo.png</PackageIcon>
     <PackageTags>hololive holotools wrapper</PackageTags>
-    <PackageReleaseNotes>- Added includeFreeChat parameter in GetStreams function. The same effect can usually be achieved by setting a lookback date, however this ensures that no upcoming Free Chat streams will appear.</PackageReleaseNotes>
-    <Version>1.2.2</Version>
-    <AssemblyVersion>1.2.2.0</AssemblyVersion>
-    <FileVersion>1.2.2.0</FileVersion>
+    <PackageReleaseNotes>- Added includeFreeChat parameter in GetStreams function. The same effect can usually be achieved by setting a lookback date, however this ensures that no upcoming Free Chat streams will appear.
+- Improved RegEx for includeFreeChat</PackageReleaseNotes>
+    <Version>1.2.3</Version>
+    <AssemblyVersion>1.2.3.0</AssemblyVersion>
+    <FileVersion>1.2.3.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
