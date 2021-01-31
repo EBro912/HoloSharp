@@ -90,7 +90,8 @@ namespace HoloSharp
             if(!includeFreeChat)
             {
                 RegexOptions options = RegexOptions.Multiline | RegexOptions.IgnoreCase;
-                upcoming.RemoveAll(stream => Regex.Match(stream.Title, @"(free\s){0,1}(chat(ting){0,1}|talk)(\sroom){0,1}", options).Success);
+                // Makes sure it doesn't remove stream titles with: chit chat, chatting, midnight chat, etc.
+                upcoming.RemoveAll(stream => Regex.Match(stream.Title, @"(?=free|room)(free\s){0,1}(chat(ting){0,1}|talk)(\sroom){0,1}", options).Success);
             }
 
             return new StreamStatus
